@@ -6,14 +6,14 @@ router.post('/register', async (req, res) => {
     
     try {
 
-        const discord = req.body.discord
+        const {discord} = req.body;
         console.log(discord)
-        if(  User.findOne({discord})) {
-            return res.status(500).send({ error: "Usuario ja existe" });
+        if( await User.findOne({ discord })) {
+            return res.status(400).send({ error: "Usuario ja existe" });
         }
 
-        const user =  User.create(req.body);
-        return  res.send({ user });
+        const user = await User.create(req.body);
+        return res.send({ user });
 
     } catch (err) {
 

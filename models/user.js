@@ -14,13 +14,20 @@ const UserSchema = new mongoose.Schema({
         require: true
     },
     win: {
-        type: String
+        type: String,
+        default: 0
     },
     lose: {
-        type: String
+        type: String,
+        default: 0
     },
     wo: {
-        type: String
+        type: String,
+        default: 0
+    },
+    mmr: {
+        type: String,
+        default: 0
     }
 
 });
